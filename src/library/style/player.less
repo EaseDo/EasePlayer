@@ -1,0 +1,360 @@
+.ease-player {
+
+    background: #000;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    user-select: none;
+
+    &.ep-player-fullscreen {
+
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+    }
+
+    video {
+        width: 100%;
+        height: 100%;
+    }
+
+    .ep-cover {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        background-size: cover;
+    }
+
+    .ep-bezel {
+
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0;
+        margin: 0;
+
+        .ep-play {
+
+            width: 68px;
+            height: 68px;
+            pointer-events: none;
+            margin: e('calc(28% - 34px)') e('calc(50% - 34px)');
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            padding: 14px 16px;
+            box-sizing: border-box;
+
+            svg {
+                width: 40px;
+                height: 40px;
+                path {
+                    fill: #fff;
+                }
+            }
+        }
+
+    }
+
+    .ep-loading {
+
+        pointer-events: none;
+        margin: e('calc(28% - 20px)') e('calc(50% - 20px)');
+
+        .ep-loading-dot {
+            animation: ep-loading-dot-fade .8s ease infinite;
+            opacity: 0;
+            fill: #fff;
+            transform-origin: 4px 4px;
+            &.ep-loading-dot-0 {
+                animation-delay: .1s * 0;
+            }
+            &.ep-loading-dot-1 {
+                animation-delay: .1s * 1;
+            }
+            &.ep-loading-dot-2 {
+                animation-delay: .1s * 2;
+            }
+            &.ep-loading-dot-3 {
+                animation-delay: .1s * 3;
+            }
+            &.ep-loading-dot-4 {
+                animation-delay: .1s * 4;
+            }
+            &.ep-loading-dot-5 {
+                animation-delay: .1s * 5;
+            }
+            &.ep-loading-dot-6 {
+                animation-delay: .1s * 6;
+            }
+            &.ep-loading-dot-7 {
+                animation-delay: .1s * 7;
+            }
+        }
+        @keyframes ep-loading-dot-fade {
+            0% {
+                opacity: .7;
+                transform: scale(1, 1)
+            }
+            50% {
+                opacity: .25;
+                transform: scale(.8, .8)
+            }
+            to {
+                opacity: .25;
+                transform: scale(.75, .75)
+            }
+        }
+
+    }
+
+    .ep-controller {
+
+        width: 100%;
+        height: 41px;
+        position: absolute;
+        bottom: 0;
+        padding: 0 10px;
+        box-sizing: border-box;
+
+        .ep-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg path {
+                fill: #fff;
+            }
+
+        }
+        
+        .ep-btn-play {
+
+            width: 40px;
+            height: 38px;
+        
+            svg {
+                width: 26px;
+                height: 24px;
+            }
+
+        }
+
+        .ep-btn-pause {
+
+            width: 40px;
+            height: 38px;
+        
+            svg {
+                width: 26px;
+                height: 24px;
+            }
+
+        }
+
+        .ep-btn-fullscreen {
+            
+            width: 40px;
+            height: 38px;
+
+            svg {
+                width: 24px;
+                height: 22px;
+            }
+
+            .ep-fullscreen-icon-mobile {
+                display: none;
+            }
+        }
+
+        .ep-left {
+            float: left;
+            height: 38px;
+            width: 40px;
+            margin-top: -38px;
+    
+        }
+    
+        .ep-right {
+            float: right;
+            height: 38px;
+            width: 40px;
+            margin-top: -38px;
+        }
+
+        .ep-bar-wrap {
+
+            width: 100%;
+            height: 41px;
+            float: left;
+
+            .ep-bar {
+    
+                background: rgba(255, 255, 255, 0.4);
+                height: 3px;
+                width: 100%;
+                position: relative;
+                
+                .ep-bar-loaded {
+                    display: inline-block;
+                    position: absolute;
+                    background: rgba(255, 255, 255, 0.6);;
+                    width: 50%;
+                    height: 100%;
+                    left: 0;
+                }
+                .ep-bar-played {
+                    display: inline-block;
+                    position: absolute;
+                    background: #24A5FF;
+                    width: 0%;
+                    height: 100%;
+                    left: 0;
+
+                    .ep-bar-thumb {
+                        display: block;
+                        position: absolute;
+                        width: 14px;
+                        height: 14px;
+                        border-radius: 7px;
+                        background: rgba(36, 165, 255, 0.5);  
+                        margin-top: -6px;
+                        right: -4px;
+                        &::before {
+                            content: '';
+                            display: block;
+                            margin: 3px;
+                            width: 8px;
+                            height: 8px;
+                            background: #24A5FF; 
+                            border-radius: 4px;
+                        }
+                    }
+
+                }
+                
+            }
+    
+            .ep-time {
+                color: #eee;
+                line-height: 38px;
+                font-size: 13px;
+                text-shadow: 0 0 2px rgba(0,0,0,.5);
+                font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+            }
+
+        }
+
+        
+    }
+
+    &.ep-theme-pc {
+
+        .ep-controller {
+
+            .ep-bar-wrap {
+                .ep-ptime {
+                    float: left;
+                    margin-left: 60px;
+                    margin-top: 3px;
+                }
+    
+                .ep-dtime {
+                    &::before {
+                        content: '/';
+                        padding: 0 10px;
+                    }
+                }    
+            }
+        }
+
+    }
+
+    &.ep-theme-mobile {
+
+        .ep-controller {
+
+            height: 44px;
+
+            .ep-btn-play {
+
+                svg {
+                    width: 30px;
+                    height: 27px;
+                }
+    
+            }
+    
+            .ep-btn-pause {
+
+                svg {
+                    width: 26px;
+                    height: 24px;
+                }
+    
+            }
+
+            .ep-left {
+                float: left;
+            }
+    
+            .ep-right {
+                float: right;
+            }
+    
+            .ep-bar-wrap {
+
+                float: none;
+                margin: 0 40px 0 40px;
+                width: calc(100% - 80px);
+                display: flex;
+                align-items: center;
+                height: 38px;
+
+                .ep-bar {
+                    position: relative;
+                    border-radius: 1px;
+                    height: 2px;
+                    margin-top: 1px;
+                    .ep-bar-loaded, .ep-bar-played {
+                        border-radius: 1px;
+                    }
+                }
+
+                .ep-time {
+                    width: 80px;
+                    font-size: 11px;
+                    text-align: center;
+                    font-weight: 100;
+                }
+
+            }
+
+            .ep-btn-fullscreen {
+
+                svg {
+                    width: 22px;
+                    height: 20px;
+                }
+
+                .ep-fullscreen-icon-mobile {
+                    display: block;
+                }
+                .ep-fullscreen-icon-pc {
+                    display: none;
+                }
+            }
+
+        }
+        
+        
+
+    }
+
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    .player-wrap {
+        box-sizing: border-box;
+        width: 100%;
+        padding-bottom: calc(900% / 16);
+        margin: 0;
+        position: relative;
+    }
+    .player-wrap .player {
+        width: 100%;
+        background: #f00;
+        height: 100%;
+        position: absolute;
+        left: 0;
+    }
+</style>
+<body>
+    <dir class="player-wrap">
+        <div class="player">
+
+        </div>
+    </dir>
+</body>
+</html>
+<script>
+    const player = new EasePlayer({
+        container: document.querySelector('.player'),
+        // theme: 'mobile',
+        debug: true,
+        video: {
+            url: 'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4',
+            pic: 'https://liangcang-material.alicdn.com/prod/upload/484c810f30d545849cd9381634b3a6cb.jpg'
+        }
+    }); 
+</script>

@@ -1,0 +1,26 @@
+{
+  "name": "easeplayer",
+  "version": "0.1.0",
+  "description": "Wow, such a ease HTML5 video player",
+  "main": "dist/EasePlayer.js",
+  "scripts": {
+    "test": "eslint src webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EaseDo/EasePlayer.git"
+  },
+  "keywords": [
+    "player",
+    "video",
+    "html5",
+    "mobile",
+    "wechat"
+  ],
+  "author": "EaseDo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EaseDo/EasePlayer/issues"
+  },
+  "homepage": "https://github.com/EaseDo/EasePlayer#readme"
+}
